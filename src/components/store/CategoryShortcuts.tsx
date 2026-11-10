@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { CATEGORIES } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
-export function CategoryShortcuts({ active }: { active?: string }) {
+export function CategoryShortcuts({ active }: { active?: string | undefined }) {
   return (
     <section aria-label="Shop by category" className="grid grid-cols-3 gap-3 sm:grid-cols-6">
       {CATEGORIES.map((c) => (

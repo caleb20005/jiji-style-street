@@ -39,15 +39,15 @@ export function SiteHeader() {
             <Select value={location} onValueChange={setLocation}>
               <SelectTrigger
                 aria-label="Delivery location"
-                className="h-10 w-full border-primary-foreground/30 bg-primary-deep/40 text-primary-foreground md:w-44 [&>svg]:text-primary-foreground"
+                className="h-11 w-full gap-2 border-primary-foreground/30 bg-primary-deep/40 text-primary-foreground md:w-44 [&>svg]:text-primary-foreground"
               >
                 <MapPin className="h-4 w-4 shrink-0" />
-                <span className="truncate text-left text-xs leading-tight">
-                  <span className="block opacity-80">Deliver to</span>
-                  <span className="block font-bold">
+                <div className="min-w-0 flex-1 text-left text-xs leading-tight">
+                  <div className="opacity-80">Deliver to</div>
+                  <div className="truncate font-bold">
                     <SelectValue />
-                  </span>
-                </span>
+                  </div>
+                </div>
               </SelectTrigger>
               <SelectContent>
                 {DELIVERY_LOCATIONS.map((l) => (

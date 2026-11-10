@@ -14,8 +14,8 @@ export function ProductCard({ product }: { product: Product }) {
     e.preventDefault();
     add({
       productId: product.id,
-      size: product.sizes[Math.floor(product.sizes.length / 2)],
-      color: product.colors[0].name,
+      size: product.sizes[Math.floor(product.sizes.length / 2)] ?? "One Size",
+      color: product.colors[0]?.name ?? "Default",
       qty: 1,
       price: product.price,
       originalPrice: product.originalPrice,

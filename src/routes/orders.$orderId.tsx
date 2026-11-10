@@ -6,11 +6,11 @@ import { getProduct } from "@/lib/products";
 import { ksh } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-type OrderSearch = { placed?: boolean };
+type OrderSearch = { placed?: boolean | undefined };
 
 export const Route = createFileRoute("/orders/$orderId")({
   validateSearch: (search: Record<string, unknown>): OrderSearch => ({
-    placed: search.placed === true || search.placed === "true" ? true : undefined,
+    placed: search["placed"] === true || search["placed"] === "true" ? true : undefined,
   }),
   head: ({ params }) => ({
     meta: [
@@ -60,7 +60,7 @@ function OrderTrackingPage() {
 
   const created = new Date(order.createdAt);
   const idx = trackingStageIndex(created, now);
-  const delivered = TRACKING_STAGES[idx].key === "delivered";
+  const delivered = TRACKING_STAGES[idx]?.key === "delivered";
   const eta = stageTime(created, TRACKING_STAGES.length - 1);
 
   return (
@@ -94,7 +94,7 @@ function OrderTrackingPage() {
         </div>
         <div className="rounded-xl bg-secondary px-4 py-2 text-right">
           <p className="text-xs font-semibold text-secondary-foreground">{delivered ? "Delivered" : "Estimated delivery"}</p>
-          <p className="font-display text-lg font-extrabold">{fmt(delivered ? eta : eta).split(",").slice(0, 2).join(",")}</p>
+          <p className="font-display text-lg font-extrabold">{fmt(eta).split(",").slice(0, 2).join(",")}</p>
         </div>
       </div>
 

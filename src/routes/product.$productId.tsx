@@ -47,8 +47,8 @@ function ProductPage() {
   const { product: p } = Route.useLoaderData();
   const { add, setOpen, location } = useCart();
   const navigate = useNavigate();
-  const [color, setColor] = useState(p.colors[0].name);
-  const [size, setSize] = useState<string | null>(p.sizes.length === 1 ? p.sizes[0] : null);
+  const [color, setColor] = useState(p.colors[0]?.name ?? "Default");
+  const [size, setSize] = useState<string | null>(p.sizes.length === 1 ? (p.sizes[0] ?? null) : null);
   const [qty, setQty] = useState(1);
   const [sizeError, setSizeError] = useState(false);
   const off = discountPercent(p);

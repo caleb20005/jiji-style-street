@@ -23,7 +23,7 @@ const LOCATION_KEY = "mavazi-location";
 export function CartProvider({ children }: { children: ReactNode }) {
   const [lines, setLines] = useState<CartLine[]>([]);
   const [isOpen, setOpen] = useState(false);
-  const [location, setLocationState] = useState(DELIVERY_LOCATIONS[0]);
+  const [location, setLocationState] = useState<string>(DELIVERY_LOCATIONS[0] ?? "Nairobi");
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {

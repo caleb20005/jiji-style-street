@@ -321,7 +321,7 @@ export function discountPercent(p: Pick<Product, "price" | "originalPrice">) {
   return Math.round((1 - p.price / p.originalPrice) * 100);
 }
 
-export function filterProducts(products: Product[], opts: { q?: string; cat?: string }) {
+export function filterProducts(products: Product[], opts: { q?: string | undefined; cat?: string | undefined }) {
   const q = opts.q?.trim().toLowerCase();
   return products.filter((p) => {
     if (opts.cat === "under999" && p.price > 999) return false;

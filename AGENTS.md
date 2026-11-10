@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Store is self-contained (no Shopify): catalog lives in `src/lib/products.ts`; cart rules (free-delivery threshold, fee, line merging) are pure functions in `src/lib/cart-logic.ts` so they stay unit-tested in `src/test/store-rules.test.ts`.
+- Cart and orders currently persist in browser localStorage (`src/lib/cart.tsx`, `src/lib/orders.ts`); shipment stages are derived from order age via `trackingStageIndex` until a backend owns real order status.
+- Home filters (search `q`, category `cat`) live in URL search params so header, banners and category links share one source of truth.

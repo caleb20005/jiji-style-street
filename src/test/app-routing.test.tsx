@@ -15,3 +15,10 @@ describe("App routing", () => {
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
 });
+
+describe("Store routes", () => {
+  it.each(["/checkout", "/orders", "/orders/MV12345678", "/product/classic-mom-jeans"])("matches %s", (path) => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes(path).at(-1)?.routeId).not.toBe(rootRouteId);
+  });
+});

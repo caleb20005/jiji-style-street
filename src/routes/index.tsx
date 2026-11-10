@@ -9,12 +9,12 @@ import { ProductCard } from "@/components/store/ProductCard";
 import { CATEGORIES, PRODUCTS, discountPercent, filterProducts } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
-type HomeSearch = { q?: string; cat?: string };
+type HomeSearch = { q?: string | undefined; cat?: string | undefined };
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): HomeSearch => ({
-    q: typeof search.q === "string" && search.q ? search.q : undefined,
-    cat: typeof search.cat === "string" && search.cat ? search.cat : undefined,
+    q: typeof search["q"] === "string" && search["q"] ? search["q"] : undefined,
+    cat: typeof search["cat"] === "string" && search["cat"] ? search["cat"] : undefined,
   }),
   head: () => ({
     meta: [

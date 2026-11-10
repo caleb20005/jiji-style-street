@@ -86,7 +86,7 @@ function OrdersPage() {
         <ul className="mt-6 space-y-3">
           {orders.map((o) => {
             const idx = trackingStageIndex(new Date(o.createdAt), now);
-            const stage = TRACKING_STAGES[idx];
+            const stage = TRACKING_STAGES[idx] ?? TRACKING_STAGES[0];
             const delivered = stage.key === "delivered";
             const count = o.lines.reduce((s, l) => s + l.qty, 0);
             return (

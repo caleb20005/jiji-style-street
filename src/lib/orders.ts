@@ -11,8 +11,8 @@ export type Order = {
   savings: number;
   delivery: number;
   total: number;
-  customer: { name: string; phone: string; email?: string };
-  shipping: { method: DeliveryMethod; town: string; address: string; notes?: string };
+  customer: { name: string; phone: string; email?: string | undefined };
+  shipping: { method: DeliveryMethod; town: string; address: string; notes?: string | undefined };
   payment: PaymentMethod;
 };
 
@@ -43,7 +43,7 @@ export function trackingStageIndex(createdAt: Date, now: Date) {
 }
 
 export function stageTime(createdAt: Date, stageIdx: number) {
-  return new Date(createdAt.getTime() + TRACKING_STAGES[stageIdx].afterHours * 3_600_000);
+  return new Date(createdAt.getTime() + (TRACKING_STAGES[stageIdx]?.afterHours ?? 0) * 3_600_000);
 }
 
 export function generateOrderId() {
