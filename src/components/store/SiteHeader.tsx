@@ -29,7 +29,7 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div className="bg-primary text-primary-foreground shadow-pop">
+      <div className="border-t border-sun/15 bg-primary text-primary-foreground shadow-pop">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 md:flex-nowrap md:gap-5">
           <Link to="/" className="font-display text-3xl font-extrabold leading-none tracking-tight">
             mavazi<span className="text-sun">.</span>
@@ -39,7 +39,7 @@ export function SiteHeader() {
             <Select value={location} onValueChange={setLocation}>
               <SelectTrigger
                 aria-label="Delivery location"
-                className="h-11 w-full gap-2 border-primary-foreground/30 bg-primary-deep/40 text-primary-foreground md:w-44 [&>svg]:text-primary-foreground"
+                className="h-11 w-full gap-2 border-primary-foreground/30 bg-primary-foreground/5 text-primary-foreground md:w-44 [&>svg]:text-primary-foreground"
               >
                 <MapPin className="h-4 w-4 shrink-0" />
                 <div className="min-w-0 flex-1 text-left text-xs leading-tight">
@@ -69,7 +69,7 @@ export function SiteHeader() {
             />
             <button
               type="submit"
-              className="flex h-11 items-center gap-2 rounded-r-full bg-ink px-5 text-sm font-bold text-ink-foreground transition-colors hover:bg-ink/85"
+              className="flex h-11 items-center gap-2 rounded-r-full bg-sun px-5 text-sm font-bold text-sun-foreground transition-colors hover:bg-sun/85"
             >
               <Search className="h-4 w-4" />
               <span className="hidden sm:inline">Search</span>
@@ -79,14 +79,14 @@ export function SiteHeader() {
           <div className="ml-auto flex items-center gap-1 md:ml-0">
             <Link
               to="/orders"
-              className="flex h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold hover:bg-primary-deep/40"
+              className="flex h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold hover:bg-primary-foreground/10"
             >
               <Package className="h-5 w-5" /> <span className="hidden lg:inline">My orders</span>
             </Link>
             <button
               onClick={() => setOpen(true)}
               aria-label={`Open cart, ${totals.itemCount} items`}
-              className="relative flex h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold hover:bg-primary-deep/40"
+              className="relative flex h-11 items-center gap-2 rounded-full px-3 text-sm font-semibold hover:bg-primary-foreground/10"
             >
               <ShoppingBag className="h-6 w-6" />
               <span className="hidden sm:inline">Cart</span>
@@ -113,7 +113,7 @@ export function SiteHeader() {
               to="/"
               search={{ cat: c.id }}
               hash="shop"
-              className="shrink-0 rounded-full px-3 py-1 hover:bg-primary-deep/40"
+              className="shrink-0 rounded-full px-3 py-1 hover:bg-primary-foreground/10"
             >
               {c.label}
             </Link>

@@ -24,7 +24,7 @@ const SLIDES = [
     sub: "Oversized hoodies, baggy denim and chunky kicks. Buy 2, get 10% off.",
     cta: "Shop the drop",
     cat: "streetwear",
-    tone: "bg-primary",
+    tone: "bg-primary-deep",
     light: true,
   },
   {
@@ -64,8 +64,8 @@ export function HeroCarousel() {
                 <img
                   src={s.image}
                   alt=""
-                  width={1600}
-                  height={704}
+                  width={1920}
+                  height={848}
                   loading={i === 0 ? "eager" : "lazy"}
                   className="absolute inset-0 h-full w-full object-cover object-right"
                 />
@@ -97,7 +97,7 @@ export function HeroCarousel() {
             key={s.title}
             aria-label={`Go to slide ${i + 1}`}
             onClick={() => api?.scrollTo(i)}
-            className={cn("h-2 rounded-full transition-all", current === i ? "w-7 bg-ink" : "w-2 bg-ink/30")}
+            className={cn("h-2 rounded-full transition-all", current === i ? "w-7 bg-sun" : "w-2 bg-muted-foreground/60")}
           />
         ))}
       </div>
