@@ -9,8 +9,28 @@ import denimJacket from "@/assets/p-denim-jacket.jpg";
 import tee from "@/assets/p-tee.jpg";
 import slides from "@/assets/p-slides.jpg";
 import sunglasses from "@/assets/p-sunglasses.jpg";
+import floralDressNavy from "@/assets/p-floral-dress-navy.jpg";
+import sneakersWhite from "@/assets/p-sneakers-white.jpg";
+import hoodieStone from "@/assets/p-hoodie-stone.jpg";
+import jeansMidBlue from "@/assets/p-jeans-midblue.jpg";
+import jeansBlack from "@/assets/p-jeans-black.jpg";
+import toteTan from "@/assets/p-tote-tan.jpg";
+import toteBlack from "@/assets/p-tote-black.jpg";
+import satinDressChampagne from "@/assets/p-satin-dress-champagne.jpg";
+import canvasBlack from "@/assets/p-canvas-black.jpg";
+import teeOcean from "@/assets/p-tee-ocean.jpg";
+import slidesCream from "@/assets/p-slides-cream.jpg";
+import sunglassesBlack from "@/assets/p-sunglasses-black.jpg";
+import oxfordShirt from "@/assets/p-oxford-shirt.jpg";
+import oxfordShirtWhite from "@/assets/p-oxford-shirt-white.jpg";
+import chinos from "@/assets/p-chinos.jpg";
+import chinosNavy from "@/assets/p-chinos-navy.jpg";
+import kidsDinoSet from "@/assets/p-kids-dino-set.jpg";
+import kidsDinoSetBlue from "@/assets/p-kids-dino-set-blue.jpg";
+import kidsTulleDress from "@/assets/p-kids-tulle-dress.jpg";
+import kidsTulleDressLilac from "@/assets/p-kids-tulle-dress-lilac.jpg";
 
-export type CategoryId = "dresses" | "streetwear" | "sneakers" | "denim" | "accessories";
+export type CategoryId = "dresses" | "streetwear" | "sneakers" | "denim" | "accessories" | "menswear" | "kids";
 
 export type Review = { name: string; rating: number; text: string; detail: string };
 
@@ -25,7 +45,8 @@ export type Product = {
   reviewCount: number;
   sold: number;
   image: string;
-  colors: { name: string; swatch: string }[];
+  /** Each colour may carry its own photo; the product page swaps to it when that colour is picked. */
+  colors: { name: string; swatch: string; image?: string }[];
   sizes: string[];
   stock: number;
   /** Percentage of flash-sale stock already claimed; present only for flash-sale items. */
@@ -40,6 +61,8 @@ export const CATEGORIES: { id: CategoryId | "under999"; label: string; image: st
   { id: "sneakers", label: "Sneakers", image: sneakers },
   { id: "denim", label: "Denim", image: jeans },
   { id: "accessories", label: "Bags & Shades", image: tote },
+  { id: "menswear", label: "Menswear", image: oxfordShirt },
+  { id: "kids", label: "Kids", image: kidsDinoSet },
   { id: "under999", label: "Under KSh 999", image: tee },
 ];
 
@@ -77,8 +100,8 @@ export const PRODUCTS: Product[] = [
     sold: 3200,
     image: floralDress,
     colors: [
-      { name: "Coral", swatch: "#e8735d" },
-      { name: "Navy", swatch: "#1f2f4f" },
+      { name: "Coral", swatch: "#e8735d", image: floralDress },
+      { name: "Navy", swatch: "#1f2f4f", image: floralDressNavy },
     ],
     sizes: ["XS", "S", "M", "L", "XL"],
     stock: 9,
@@ -99,8 +122,8 @@ export const PRODUCTS: Product[] = [
     sold: 5400,
     image: sneakers,
     colors: [
-      { name: "White/Orange", swatch: "#f26b1d" },
-      { name: "Triple White", swatch: "#f2f0ea" },
+      { name: "White/Orange", swatch: "#f26b1d", image: sneakers },
+      { name: "Triple White", swatch: "#f2f0ea", image: sneakersWhite },
     ],
     sizes: ["38", "39", "40", "41", "42", "43", "44"],
     stock: 14,
@@ -121,8 +144,8 @@ export const PRODUCTS: Product[] = [
     sold: 1200,
     image: hoodie,
     colors: [
-      { name: "Black", swatch: "#141414" },
-      { name: "Stone", swatch: "#cfc6b8" },
+      { name: "Black", swatch: "#141414", image: hoodie },
+      { name: "Stone", swatch: "#cfc6b8", image: hoodieStone },
     ],
     sizes: ["S", "M", "L", "XL", "XXL"],
     stock: 6,
@@ -142,9 +165,9 @@ export const PRODUCTS: Product[] = [
     sold: 8700,
     image: jeans,
     colors: [
-      { name: "Light Wash", swatch: "#a9c3dd" },
-      { name: "Mid Blue", swatch: "#4b6f9c" },
-      { name: "Black", swatch: "#222222" },
+      { name: "Light Wash", swatch: "#a9c3dd", image: jeans },
+      { name: "Mid Blue", swatch: "#4b6f9c", image: jeansMidBlue },
+      { name: "Black", swatch: "#222222", image: jeansBlack },
     ],
     sizes: ["26", "28", "30", "32", "34", "36"],
     stock: 21,
@@ -164,9 +187,9 @@ export const PRODUCTS: Product[] = [
     sold: 980,
     image: tote,
     colors: [
-      { name: "Mustard", swatch: "#c9a227" },
-      { name: "Tan", swatch: "#a8754a" },
-      { name: "Black", swatch: "#1b1b1b" },
+      { name: "Mustard", swatch: "#c9a227", image: tote },
+      { name: "Tan", swatch: "#a8754a", image: toteTan },
+      { name: "Black", swatch: "#1b1b1b", image: toteBlack },
     ],
     sizes: ["One Size"],
     stock: 4,
@@ -186,8 +209,8 @@ export const PRODUCTS: Product[] = [
     sold: 1600,
     image: satinDress,
     colors: [
-      { name: "Emerald", swatch: "#1f9d55" },
-      { name: "Champagne", swatch: "#e5cfa8" },
+      { name: "Emerald", swatch: "#1f9d55", image: satinDress },
+      { name: "Champagne", swatch: "#e5cfa8", image: satinDressChampagne },
     ],
     sizes: ["XS", "S", "M", "L"],
     stock: 11,
@@ -206,8 +229,8 @@ export const PRODUCTS: Product[] = [
     sold: 12400,
     image: canvas,
     colors: [
-      { name: "White", swatch: "#f5f5f2" },
-      { name: "Black", swatch: "#1a1a1a" },
+      { name: "White", swatch: "#f5f5f2", image: canvas },
+      { name: "Black", swatch: "#1a1a1a", image: canvasBlack },
     ],
     sizes: ["36", "37", "38", "39", "40", "41", "42", "43"],
     stock: 35,
@@ -243,8 +266,8 @@ export const PRODUCTS: Product[] = [
     sold: 6300,
     image: tee,
     colors: [
-      { name: "Sunset", swatch: "#f38b4a" },
-      { name: "Ocean", swatch: "#4aa3c9" },
+      { name: "Sunset", swatch: "#f38b4a", image: tee },
+      { name: "Ocean", swatch: "#4aa3c9", image: teeOcean },
     ],
     sizes: ["S", "M", "L", "XL", "XXL"],
     stock: 27,
@@ -264,8 +287,8 @@ export const PRODUCTS: Product[] = [
     sold: 4100,
     image: slides,
     colors: [
-      { name: "Black", swatch: "#151515" },
-      { name: "Cream", swatch: "#ece3d2" },
+      { name: "Black", swatch: "#151515", image: slides },
+      { name: "Cream", swatch: "#ece3d2", image: slidesCream },
     ],
     sizes: ["37", "38", "39", "40", "41", "42"],
     stock: 5,
@@ -284,8 +307,8 @@ export const PRODUCTS: Product[] = [
     sold: 2900,
     image: sunglasses,
     colors: [
-      { name: "Tortoise", swatch: "#7a4a22" },
-      { name: "Black", swatch: "#111111" },
+      { name: "Tortoise", swatch: "#7a4a22", image: sunglasses },
+      { name: "Black", swatch: "#111111", image: sunglassesBlack },
     ],
     sizes: ["One Size"],
     stock: 18,
@@ -302,11 +325,92 @@ export const PRODUCTS: Product[] = [
     rating: 4.6,
     reviewCount: 712,
     sold: 1900,
-    image: jeans,
-    colors: [{ name: "Mid Blue", swatch: "#4b6f9c" }],
+    image: jeansMidBlue,
+    colors: [{ name: "Mid Blue", swatch: "#4b6f9c", image: jeansMidBlue }],
     sizes: ["28", "30", "32", "34", "36"],
     stock: 12,
     description: "Relaxed wide-leg jeans with a low-slung fit for that 2000s look.",
+    reviews: commonReviews,
+  },
+  {
+    id: "slim-oxford-shirt",
+    name: "Slim Fit Button-Down Oxford Shirt",
+    brand: "Ben Fashion Men",
+    category: "menswear",
+    price: 1299,
+    originalPrice: 2299,
+    rating: 4.6,
+    reviewCount: 534,
+    sold: 2400,
+    image: oxfordShirt,
+    colors: [
+      { name: "Sky Blue", swatch: "#8fb3e0", image: oxfordShirt },
+      { name: "White", swatch: "#f7f7f5", image: oxfordShirtWhite },
+    ],
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    stock: 16,
+    description: "Breathable cotton Oxford with a button-down collar. Office on Monday, out on Friday.",
+    reviews: commonReviews,
+  },
+  {
+    id: "tailored-chino-trousers",
+    name: "Tailored Stretch Chino Trousers",
+    brand: "Ben Fashion Men",
+    category: "menswear",
+    price: 1499,
+    originalPrice: 2699,
+    rating: 4.5,
+    reviewCount: 418,
+    sold: 1800,
+    image: chinos,
+    colors: [
+      { name: "Khaki", swatch: "#b9a77f", image: chinos },
+      { name: "Navy", swatch: "#24324d", image: chinosNavy },
+    ],
+    sizes: ["30", "32", "34", "36", "38"],
+    stock: 10,
+    flashClaimed: 69,
+    description: "Slim tapered chinos in soft stretch cotton twill. Smart enough for work, easy enough for weekends.",
+    reviews: commonReviews,
+  },
+  {
+    id: "kids-dino-tee-shorts-set",
+    name: "Kids Dino Tee & Shorts Set",
+    brand: "Ben Fashion Kids",
+    category: "kids",
+    price: 799,
+    originalPrice: 1499,
+    rating: 4.8,
+    reviewCount: 362,
+    sold: 2700,
+    image: kidsDinoSet,
+    colors: [
+      { name: "Sunny Yellow", swatch: "#f2c919", image: kidsDinoSet },
+      { name: "Sky Blue", swatch: "#3aa0e6", image: kidsDinoSetBlue },
+    ],
+    sizes: ["2-3Y", "4-5Y", "6-7Y", "8-9Y"],
+    stock: 19,
+    description: "Soft cotton tee and pull-on shorts with a friendly dino print. Easy for play and school holidays.",
+    reviews: commonReviews,
+  },
+  {
+    id: "girls-tulle-party-dress",
+    name: "Girls Satin & Tulle Party Dress",
+    brand: "Ben Fashion Kids",
+    category: "kids",
+    price: 1199,
+    originalPrice: 2199,
+    rating: 4.7,
+    reviewCount: 241,
+    sold: 1100,
+    image: kidsTulleDress,
+    colors: [
+      { name: "Blush Pink", swatch: "#f0b7c4", image: kidsTulleDress },
+      { name: "Lilac", swatch: "#c9a7ec", image: kidsTulleDressLilac },
+    ],
+    sizes: ["2-3Y", "4-5Y", "6-7Y", "8-9Y"],
+    stock: 7,
+    description: "Satin bodice, layered tulle skirt and a bow at the waist. Made for birthdays, weddings and Sunday best.",
     reviews: commonReviews,
   },
 ];
@@ -315,6 +419,11 @@ export const FLASH_PRODUCTS = PRODUCTS.filter((p) => p.flashClaimed !== undefine
 
 export function getProduct(id: string) {
   return PRODUCTS.find((p) => p.id === id);
+}
+
+/** Photo for the chosen colour, falling back to the product's main photo. */
+export function colorImage(p: Pick<Product, "image" | "colors">, color?: string) {
+  return p.colors.find((c) => c.name === color)?.image ?? p.image;
 }
 
 export function discountPercent(p: Pick<Product, "price" | "originalPrice">) {

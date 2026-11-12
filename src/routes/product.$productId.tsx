@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-ro
 import { useState } from "react";
 import { ChevronRight, Eye, Flame, Minus, Plus, ShoppingBag, Truck } from "lucide-react";
 import { toast } from "sonner";
-import { PRODUCTS, discountPercent, getProduct } from "@/lib/products";
+import { PRODUCTS, colorImage, discountPercent, getProduct, type Product } from "@/lib/products";
 import { compactCount, ksh } from "@/lib/format";
 import { useCart } from "@/lib/cart";
 import { Stars } from "@/components/store/Stars";
@@ -17,9 +17,9 @@ export const Route = createFileRoute("/product/$productId")({
     return { product };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return { meta: [{ title: "Product unavailable — Mavazi" }, { name: "robots", content: "noindex" }] };
+    if (!loaderData) return { meta: [{ title: "Product unavailable — Ben Fashion" }, { name: "robots", content: "noindex" }] };
     const p = loaderData.product;
-    const title = `${p.name} — ${ksh(p.price)} | Mavazi`;
+    const title = `${p.name} — ${ksh(p.price)} | Ben Fashion`;
     const description = `${p.description} Now ${discountPercent(p)}% off. Cash on Delivery available.`;
     return {
       meta: [
@@ -44,7 +44,12 @@ export const Route = createFileRoute("/product/$productId")({
 });
 
 function ProductPage() {
-  const { product: p } = Route.useLoaderData();
+  const { product } = Route.useLoaderData();
+  // Keyed so colour/size/qty reset when moving to another product from "You may also like".
+  return <ProductDetail key={product.id} p={product} />;
+}
+
+function ProductDetail({ p }: { p: Product }) {
   const { add, setOpen, location } = useCart();
   const navigate = useNavigate();
   const [color, setColor] = useState(p.colors[0]?.name ?? "Default");
@@ -86,7 +91,14 @@ function ProductPage() {
 
       <div className="grid gap-6 rounded-2xl border bg-card p-4 sm:p-6 lg:grid-cols-2 lg:gap-10">
         <div className="relative overflow-hidden rounded-xl bg-muted">
-          <img src={p.image} alt={p.name} width={768} height={960} className="aspect-[4/5] w-full object-cover" />
+          <img
+            key={color}
+            src={colorImage(p, color)}
+            alt={`${p.name} in ${color}`}
+            width={768}
+            height={960}
+            className="aspect-[4/5] w-full animate-in fade-in object-cover duration-300"
+          />
           <span className="absolute left-3 top-3 rounded-lg bg-flash px-2 py-1 font-display text-lg font-extrabold text-flash-foreground">
             -{off}%
           </span>
@@ -141,7 +153,11 @@ function ProductPage() {
                     color === c.name ? "border-primary bg-accent" : "border-border hover:border-primary/50",
                   )}
                 >
-                  <span className="h-6 w-6 rounded-full border" style={{ backgroundColor: c.swatch }} />
+                  {c.image ? (
+                    <img src={c.image} alt="" width={768} height={960} loading="lazy" className="h-7 w-7 rounded-full border object-cover" style={{ backgroundColor: c.swatch }} />
+                  ) : (
+                    <span className="h-6 w-6 rounded-full border" style={{ backgroundColor: c.swatch }} />
+                  )}
                   {c.name}
                 </button>
               ))}

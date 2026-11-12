@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Check, CircleCheckBig, MapPin, Phone } from "lucide-react";
 import { loadOrders, PAYMENT_LABELS, stageTime, trackingStageIndex, TRACKING_STAGES, type Order } from "@/lib/orders";
-import { getProduct } from "@/lib/products";
+import { getProduct, colorImage } from "@/lib/products";
 import { ksh } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
@@ -14,10 +14,10 @@ export const Route = createFileRoute("/orders/$orderId")({
   }),
   head: ({ params }) => ({
     meta: [
-      { title: `Track order ${params.orderId} — Mavazi` },
-      { name: "description", content: "Follow your Mavazi parcel from dispatch to delivery." },
-      { property: "og:title", content: `Track order ${params.orderId} — Mavazi` },
-      { property: "og:description", content: "Live shipment status for your Mavazi fashion order." },
+      { title: `Track order ${params.orderId} — Ben Fashion` },
+      { name: "description", content: "Follow your Ben Fashion parcel from dispatch to delivery." },
+      { property: "og:title", content: `Track order ${params.orderId} — Ben Fashion` },
+      { property: "og:description", content: "Live shipment status for your Ben Fashion order." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
@@ -143,7 +143,7 @@ function OrderTrackingPage() {
               if (!p) return null;
               return (
                 <li key={`${l.productId}${l.size}${l.color}`} className="flex gap-3">
-                  <img src={p.image} alt="" width={768} height={960} loading="lazy" className="h-16 w-14 rounded-md bg-muted object-cover" />
+                  <img src={colorImage(p, l.color)} alt="" width={768} height={960} loading="lazy" className="h-16 w-14 rounded-md bg-muted object-cover" />
                   <div className="min-w-0 flex-1 text-sm">
                     <Link to="/product/$productId" params={{ productId: p.id }} className="line-clamp-1 font-medium hover:text-primary">
                       {p.name}

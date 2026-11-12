@@ -32,7 +32,7 @@ export function SiteHeader() {
       <div className="bg-primary text-primary-foreground shadow-pop">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-3 px-4 py-3 md:flex-nowrap md:gap-5">
           <Link to="/" className="font-display text-3xl font-extrabold leading-none tracking-tight">
-            mavazi<span className="text-sun">.</span>
+            Ben{" "}<span className="text-sun">Fashion</span>
           </Link>
 
           <div className="order-3 flex w-full items-center md:order-none md:w-auto">

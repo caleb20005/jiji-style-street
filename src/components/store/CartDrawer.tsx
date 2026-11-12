@@ -3,7 +3,7 @@ import { Minus, Plus, ShoppingBag, Trash2, Truck } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import { useCart } from "@/lib/cart";
 import { lineKey, FREE_DELIVERY_THRESHOLD } from "@/lib/cart-logic";
-import { getProduct } from "@/lib/products";
+import { getProduct, colorImage } from "@/lib/products";
 import { ksh } from "@/lib/format";
 
 export function CartDrawer() {
@@ -70,7 +70,7 @@ export function CartDrawer() {
                 const key = lineKey(l);
                 return (
                   <li key={key} className="flex gap-3 py-4">
-                    <img src={p.image} alt={p.name} width={768} height={960} loading="lazy" className="h-24 w-20 shrink-0 rounded-lg bg-muted object-cover" />
+                    <img src={colorImage(p, l.color)} alt={`${p.name} in ${l.color}`} width={768} height={960} loading="lazy" className="h-24 w-20 shrink-0 rounded-lg bg-muted object-cover" />
                     <div className="flex min-w-0 flex-1 flex-col">
                       <p className="line-clamp-2 text-sm font-medium leading-snug">{p.name}</p>
                       <p className="mt-0.5 text-xs text-muted-foreground">

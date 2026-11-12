@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Banknote, CreditCard, Home, Lock, MapPin, Smartphone, Store } from "lucide-react";
 import { DELIVERY_LOCATIONS, useCart } from "@/lib/cart";
-import { getProduct } from "@/lib/products";
+import { getProduct, colorImage } from "@/lib/products";
 import { ksh } from "@/lib/format";
 import { lineKey } from "@/lib/cart-logic";
 import {
@@ -17,10 +17,10 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/checkout")({
   head: () => ({
     meta: [
-      { title: "Checkout — Mavazi" },
-      { name: "description", content: "Complete your Mavazi order. Pay with M-Pesa, card or cash on delivery." },
-      { property: "og:title", content: "Checkout — Mavazi" },
-      { property: "og:description", content: "Complete your Mavazi fashion order securely." },
+      { title: "Checkout — Ben Fashion" },
+      { name: "description", content: "Complete your Ben Fashion order. Pay with M-Pesa, card or cash on delivery." },
+      { property: "og:title", content: "Checkout — Ben Fashion" },
+      { property: "og:description", content: "Complete your Ben Fashion order securely." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
@@ -212,7 +212,7 @@ function CheckoutPage() {
               if (!p) return null;
               return (
                 <li key={lineKey(l)} className="flex gap-3">
-                  <img src={p.image} alt="" width={768} height={960} loading="lazy" className="h-16 w-14 rounded-md bg-muted object-cover" />
+                  <img src={colorImage(p, l.color)} alt="" width={768} height={960} loading="lazy" className="h-16 w-14 rounded-md bg-muted object-cover" />
                   <div className="min-w-0 flex-1 text-sm">
                     <p className="line-clamp-1 font-medium">{p.name}</p>
                     <p className="text-xs text-muted-foreground">

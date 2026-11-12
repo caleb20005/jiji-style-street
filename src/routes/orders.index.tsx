@@ -2,17 +2,17 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { Package, Search } from "lucide-react";
 import { loadOrders, trackingStageIndex, TRACKING_STAGES, type Order } from "@/lib/orders";
-import { getProduct } from "@/lib/products";
+import { getProduct, colorImage } from "@/lib/products";
 import { ksh } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/orders/")({
   head: () => ({
     meta: [
-      { title: "My Orders — Mavazi" },
-      { name: "description", content: "See your Mavazi order history and track every shipment to your door." },
-      { property: "og:title", content: "My Orders — Mavazi" },
-      { property: "og:description", content: "Order history and shipment tracking for your Mavazi fashion orders." },
+      { title: "My Orders — Ben Fashion" },
+      { name: "description", content: "See your Ben Fashion order history and track every shipment to your door." },
+      { property: "og:title", content: "My Orders — Ben Fashion" },
+      { property: "og:description", content: "Order history and shipment tracking for your Ben Fashion orders." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -117,7 +117,7 @@ function OrdersPage() {
                     {o.lines.slice(0, 5).map((l) => {
                       const p = getProduct(l.productId);
                       return p ? (
-                        <img key={`${l.productId}${l.size}${l.color}`} src={p.image} alt={p.name} width={768} height={960} loading="lazy" className="h-14 w-12 rounded-md bg-muted object-cover" />
+                        <img key={`${l.productId}${l.size}${l.color}`} src={colorImage(p, l.color)} alt={p.name} width={768} height={960} loading="lazy" className="h-14 w-12 rounded-md bg-muted object-cover" />
                       ) : null;
                     })}
                     {o.lines.length > 5 && <span className="text-xs text-muted-foreground">+{o.lines.length - 5}</span>}

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { addLine, cartTotals, type CartLine } from "@/lib/cart-logic";
 import { isValidKenyanPhone, trackingStageIndex, TRACKING_STAGES } from "@/lib/orders";
-import { filterProducts, PRODUCTS } from "@/lib/products";
+import { colorImage, filterProducts, PRODUCTS } from "@/lib/products";
 
 const line = (price: number, qty = 1, extra: Partial<CartLine> = {}): CartLine => ({
   productId: "p1",
@@ -75,5 +75,25 @@ describe("shipment tracking", () => {
   });
   it("is delivered after 48 hours", () => {
     expect(TRACKING_STAGES[trackingStageIndex(placed, after(48))]?.key).toBe("delivered");
+  });
+});
+
+describe("catalogue additions", () => {
+  it("has products in the Menswear and Kids categories", () => {
+    expect(filterProducts(PRODUCTS, { cat: "menswear" }).length).toBeGreaterThan(0);
+    expect(filterProducts(PRODUCTS, { cat: "kids" }).length).toBeGreaterThan(0);
+  });
+
+  it("shows a different photo for each colour of a product", () => {
+    const multi = PRODUCTS.filter((p) => p.colors.length > 1);
+    for (const p of multi) {
+      const photos = new Set(p.colors.map((c) => colorImage(p, c.name)));
+      expect(photos.size, p.id).toBe(p.colors.length);
+    }
+  });
+
+  it("falls back to the main photo for an unknown colour", () => {
+    const p = PRODUCTS[0]!;
+    expect(colorImage(p, "Nope")).toBe(p.image);
   });
 });

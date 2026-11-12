@@ -86,12 +86,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mavazi — Affordable Fashion Delivered Across Kenya" },
+      { title: "Ben Fashion — Affordable Fashion Delivered Across Kenya" },
       {
         name: "description",
         content: "Shop affordable dresses, streetwear, sneakers and denim. Daily flash deals, M-Pesa and Cash on Delivery.",
       },
-      { property: "og:title", content: "Mavazi — Affordable Fashion Delivered Across Kenya" },
+      { property: "og:title", content: "Ben Fashion — Affordable Fashion Delivered Across Kenya" },
       {
         property: "og:description",
         content: "Shop affordable dresses, streetwear, sneakers and denim. Daily flash deals, M-Pesa and Cash on Delivery.",

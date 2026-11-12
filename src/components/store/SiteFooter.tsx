@@ -6,7 +6,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="font-display text-3xl font-extrabold">
-            mavazi<span className="text-primary">.</span>
+            Ben{" "}<span className="text-primary">Fashion</span>
           </p>
           <p className="mt-2 text-sm text-ink-foreground/70">
             Affordable everyday fashion, delivered across Kenya.
@@ -19,6 +19,8 @@ export function SiteFooter() {
             <li>Streetwear</li>
             <li>Sneakers</li>
             <li>Denim</li>
+            <li>Menswear</li>
+            <li>Kids</li>
           </ul>
         </div>
         <div className="text-sm">
@@ -42,7 +44,7 @@ export function SiteFooter() {
         </div>
       </div>
       <p className="border-t border-ink-foreground/10 py-4 text-center text-xs text-ink-foreground/50">
-        © {new Date().getFullYear()} Mavazi. All prices in Kenyan Shillings.
+        © {new Date().getFullYear()} Ben Fashion. All prices in Kenyan Shillings.
       </p>
     </footer>
   );

@@ -18,13 +18,13 @@ export const Route = createFileRoute("/")({
   }),
   head: () => ({
     meta: [
-      { title: "Mavazi — Flash Deals on Dresses, Sneakers & Streetwear" },
+      { title: "Ben Fashion — Flash Deals on Dresses, Sneakers & Streetwear" },
       {
         name: "description",
         content:
           "Up to 60% off everyday fashion in Kenya. Dresses, streetwear, sneakers, denim and deals under KSh 999 with Cash on Delivery.",
       },
-      { property: "og:title", content: "Mavazi — Flash Deals on Dresses, Sneakers & Streetwear" },
+      { property: "og:title", content: "Ben Fashion — Flash Deals on Dresses, Sneakers & Streetwear" },
       {
         property: "og:description",
         content: "Up to 60% off everyday fashion in Kenya. Pay with M-Pesa, card or cash on delivery.",
@@ -54,7 +54,7 @@ function Home() {
 
   return (
     <div className="mx-auto max-w-7xl space-y-8 px-4 py-5">
-      <h1 className="sr-only">Mavazi affordable fashion store</h1>
+      <h1 className="sr-only">Ben Fashion affordable fashion store</h1>
       <HeroCarousel />
       <CategoryShortcuts active={cat} />
       <FlashSale />

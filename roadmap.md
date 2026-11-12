@@ -1,4 +1,4 @@
-# Roadmap — Mavazi fashion store (self-contained, no Shopify)
+# Roadmap — Ben Fashion fashion store (self-contained, no Shopify)
 
 - [x] Design system (orange/magenta Kilimall-inspired), fonts, root head metadata
 - [x] Built-in product catalog (sample products + images)
@@ -14,3 +14,6 @@
 - [x] Tests for cart rules (free delivery threshold, totals)
 - [x] Order history page ("My orders") listing past orders after checkout
 - [x] Shipment tracking page per order (status timeline: placed → confirmed → dispatched → out for delivery → delivered)
+- [x] Rename store to Ben Fashion
+- [x] Add Menswear and Kids categories with products
+- [x] Product photo changes with the selected colour
