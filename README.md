@@ -1,6 +1,6 @@
 # Jiji Style Street
 
-Create a fashion e-commerce store website inspired by Kilimall: a vibrant, value-driven online clothing marketplace for affordable everyday apparel, shoes, and accessories. Include:
+A fashion e-commerce store website inspired by Kilimall: a vibrant, value-driven online clothing marketplace for affordable everyday apparel, shoes, and accessories. Include:
 
 - Header with search bar, delivery location selector, and cart badge.
 - Promotional hero banner carousel for fashion sales and clearance events.
@@ -11,11 +11,11 @@ Create a fashion e-commerce store website inspired by Kilimall: a vibrant, value
 - Interactive product view with size and color selection, stock urgency notices, and customer review previews.
 - Working cart drawer with free delivery progress bar and checkout preview.
 
-This project was built with [Lovable](https://lovable.dev).
+This project was built with [BelkiTech] in collab with (https://lovable.dev).
 
-## Build with Lovable
+## Build with BelkiTech
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/5eca1cdd-d6f1-4be5-80c4-4905588ce0b6).
+Continue developing this project with [BelkiTech] via(https://lovable.dev/projects/5eca1cdd-d6f1-4be5-80c4-4905588ce0b6).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
